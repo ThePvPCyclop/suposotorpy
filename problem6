@@ -1,0 +1,41 @@
+import random
+
+#problem 6
+print("Problem 6 - Merge List")
+print()
+
+listM1 = list()
+listM2 = list()
+
+def merge(lst1, lst2):
+
+    for x in range(5):
+        lst1.append(random.randint(1, 100))
+        lst2.append(random.randint(1, 100))
+    
+    print(f"Unsorted Lists = {lst1} {lst2}")
+    print()
+
+    lst1.sort(), lst2.sort()
+
+    print(f"Sorted Lists = {lst1} {lst2}")
+    print()
+
+    listM3 = list()
+
+    while lst1 and lst2:
+
+        if lst1[0] < lst2[0]:
+            listM3.append(lst1.pop(0))
+
+        else:
+            listM3.append(lst2.pop(0))
+    
+    listM3.extend(lst1)
+    listM3.extend(lst2)
+
+    print(f"Merged Sorted List = {listM3}")
+
+    return listM3
+
+merge(listM1, listM2)
